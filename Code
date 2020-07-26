@@ -1,0 +1,53 @@
+int led=13;
+int tip1=2;
+int tip2=4;
+int var=0;
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(2,INPUT);
+  pinMode(4,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int button1=digitalRead(2); 
+  if(button1==1)
+  {
+    Serial.println("Button 1");
+    var=digitalRead(13);  
+    Serial.print(var);
+    
+    if(var==1)
+    {
+      digitalWrite(13,LOW);
+      delay(100);
+    }
+    if(var==0)
+    {
+      digitalWrite(13,HIGH);
+      
+      delay(100);
+    }
+  }
+  int button2=digitalRead(4); 
+  if(button2==1)
+  {
+    Serial.println("Button 2");
+    var=digitalRead(13);  
+    Serial.print(var);
+    
+    if(var==1)
+    {
+      digitalWrite(13,LOW);
+      delay(100);
+    }
+   else
+   {
+      digitalWrite(13,HIGH);
+      delay(100);
+    }
+  }
+}
